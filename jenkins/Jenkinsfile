@@ -1,12 +1,21 @@
 pipeline {
-   agent {
-   	label '10.30.80.220'
-   }
+
    stages {
-      stage('Hello') {
+   	  stage('Build') {
+   	  	   agent {
+		   	label 'master'
+		   }
          steps {
-            echo 'Hello World'
-            sh './runservice start development'
+            sh 'ant clean jar test'
+
+         }
+      }
+      stage('Development') {
+      	   agent {
+		   	label '10.30.80.220'
+		   }
+         steps {
+            sh './runservice restart development'
          }
       }
    }

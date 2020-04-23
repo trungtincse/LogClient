@@ -3,8 +3,8 @@ pipeline {
    	label '10.30.80.220'
    }
     environment {
-        export http_proxy='http://10.30.80.254:81'
-        export https_proxy='http://10.30.80.254:81'
+        http_proxy='http://10.30.80.254:81'
+        https_proxy='http://10.30.80.254:81'
     }
    stages {
       stage('Hello') {

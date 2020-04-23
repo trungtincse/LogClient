@@ -11,6 +11,10 @@ pipeline {
          }
       }
       stage('Development') {
+      	    environment {
+		        http_proxy = 'http://10.30.80.254:81'
+		        https_proxy    = 'http://10.30.80.254:81'
+	   		 }
       	   agent {
 		   	label '10.30.80.220'
 		   }
